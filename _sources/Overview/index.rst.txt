@@ -1,0 +1,5 @@
+Overview
+========
+
+This demo will create a plugin for ELN. This plugin creates a step that contacts an external API. The result from the API can either fill in parameters for the ELN step or open an external webpage.
+

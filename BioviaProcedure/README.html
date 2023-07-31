@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accesing the System &mdash; SMARTLab Biovia ELN service 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SMARTLab Biovia ELN service
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Accesing the System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#creating-a-recipe">Creating a Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#creating-a-step-in-the-process-tab-and-linking-to-a-protocol">Creating a Step in the Process Tab and Linking to a Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#publishing-the-recipe">Publishing the Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#task-recipe-example">Task/Recipe Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#about-pipeline-pilot">About Pipeline Pilot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#capture-hub-api-documentation">Capture Hub API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SMARTLab Biovia ELN service</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Accesing the System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/BioviaProcedure/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="accesing-the-system">
+<h1>Accesing the System<a class="headerlink" href="#accesing-the-system" title="Permalink to this heading"></a></h1>
+<p>Site: <a class="reference external" href="https://onelab-dev.pfizer.com:9963">https://onelab-dev.pfizer.com:9963</a></p>
+<p>Access for me was granted by Michael Milloing</p>
+</section>
+<section id="creating-a-recipe">
+<h1>Creating a Recipe<a class="headerlink" href="#creating-a-recipe" title="Permalink to this heading"></a></h1>
+<section id="opening-the-recipe-creation-window">
+<h2>Opening the Recipe Creation Window<a class="headerlink" href="#opening-the-recipe-creation-window" title="Permalink to this heading"></a></h2>
+<p>Upon entering the site, select the compose icon, or navigate to the menu icon in the top-right corner and choose ‘compose’. Then, click ‘create’.</p>
+<p>New Recipe Creation</p>
+<img src="./images/create_recipe.png" alt="New Recipe Creation" style="border:1px solid black;">
+<p>Fill in the fields as follows:</p>
+<ol class="arabic simple">
+<li><p>Recipe Name: Any name of your choice</p></li>
+<li><p>Recipe type: Select “Master”</p></li>
+<li><p>Recipe workflow: Select “activity driven”</p></li>
+<li><p>Select method category: Choose “ARD Process”. This determines the ID number used for referencing the recipe programmatically.</p></li>
+<li><p>Execute in capture hub: Set to TRUE</p></li>
+<li><p>Select recipe location: Your choice, location doesn’t matter.</p></li>
+</ol>
+</section>
+<section id="understanding-the-recipe-creation-environment">
+<h2>Understanding the Recipe Creation Environment<a class="headerlink" href="#understanding-the-recipe-creation-environment" title="Permalink to this heading"></a></h2>
+</section>
+<section id="navigating-the-tabs">
+<h2>Navigating the Tabs<a class="headerlink" href="#navigating-the-tabs" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Details: You can find the method-id here.</p></li>
+<li><p>Materials: Lists the materials used (e.g., solvents).</p></li>
+<li><p>Samples: Shows the method applied to various samples.</p></li>
+<li><p>Equipment: Lists the equipment used (e.g., balance, HPLC). This tab can contain connection details for various lab equipment.</p></li>
+<li><p>Process: The primary workspace for designing the steps of your recipe.</p></li>
+<li><p>Flowchart: Visual representation of your recipe steps.</p></li>
+<li><p>Instructions: Step-by-step guidance on executing the recipe.</p></li>
+</ol>
+<section id="process-tab">
+<h3>Process Tab<a class="headerlink" href="#process-tab" title="Permalink to this heading"></a></h3>
+<p>The Process tab is the main area where you define the steps of your recipe.</p>
+<img src="./images/process tab.png" alt="The Process Tab" style="border:1px solid black;">
+<p>Here, you can clone the generic stage to create as many stages as you need and modify their names in the rightmost window. This workspace also holds all parameters for the step being created.</p>
+</section>
+</section>
+</section>
+<section id="creating-a-step-in-the-process-tab-and-linking-to-a-protocol">
+<h1>Creating a Step in the Process Tab and Linking to a Protocol<a class="headerlink" href="#creating-a-step-in-the-process-tab-and-linking-to-a-protocol" title="Permalink to this heading"></a></h1>
+<p>This section will guide you through the process of creating a step within the process tab, linking it to a protocol, and adding parameters. The protocol adds a “Send to Automation” button to the task, allowing it to send the step’s parameters to an API or an external endpoint. The response from the API can then either open a website or populate the parameters, given that the names match with the keys returned in the API’s JSON response.</p>
+<section id="define-step-details-and-parameters">
+<h2>1. Define Step Details and Parameters<a class="headerlink" href="#define-step-details-and-parameters" title="Permalink to this heading"></a></h2>
+<p>In the process tab, we can configure the step details. This includes the creation of text boxes and parameters that store the information required for the process.</p>
+<ul class="simple">
+<li><p>Textbox: Any desired text can be entered here. This will be displayed to the end user on the “captures” page.</p></li>
+<li><p>Parameters: Here, you can compile a list of information to be stored. The parameters can be of various types, such as text-boxes, select-menus, etc.</p></li>
+</ul>
+<img src="./images/add_text_parameter.png" alt="Add Text Parameter" style="border:1px solid black;">
+</section>
+<section id="link-the-step-to-a-protocol">
+<h2>2. Link the Step to a Protocol<a class="headerlink" href="#link-the-step-to-a-protocol" title="Permalink to this heading"></a></h2>
+<p>To enable the transmission of information from the capture to a different location (like an API), a protocol needs to be added to the step.</p>
+<p>For instance, the Dataiku protocol can be added to the input step of the recipe. In future, there may be an option to use a smart-lab feature, potentially through a Dataiku-connector/protocol that sends data to an API hosted by the Pipeline Pilot application.</p>
+<p>NOTE: To create a new protocol, Pipeline Pilot may be required.</p>
+<img src="./images/dataiku_protocol.png" alt="Dataiku Protocol" style="border:1px solid black;">
+</section>
+<section id="map-parameters-to-the-protocol">
+<h2>3. Map Parameters to the Protocol<a class="headerlink" href="#map-parameters-to-the-protocol" title="Permalink to this heading"></a></h2>
+<p>The next step involves mapping a parameter to the protocol you just set up. To do this:</p>
+<ul class="simple">
+<li><p>Select “mapping-view” using the scales on the parameters tab.</p></li>
+<li><p>Select the protocol. It should be good to go.</p></li>
+</ul>
+<p>For this example, “collect” is the only available option for “disposition.”</p>
+<p>After saving, a “Send to Automation” button will be created. This protocol is simple - it doesn’t take any information from the step itself. Instead, it simply hits an endpoint on the Dataiku server.</p>
+</section>
+<section id="add-more-parameters">
+<h2>4. Add More Parameters<a class="headerlink" href="#add-more-parameters" title="Permalink to this heading"></a></h2>
+<p>At this point, additional parameters can be added to the step, such as URL, POST, or any parameter. This information can be integrated into whatever protocol we create.</p>
+<p>A protocol to contact an API can be created, and parameters for the URL of the API, as well as any other information we want to send to that API, can be added to this step. The protocol can also have global variables.</p>
+<p>Below, two more parameters are added, giving a total of three parameters. The parameters view button at the top-left is clicked to change their names to “endpoint,” “call-type,” and “message-body.” In theory, these will be parameters that our protocol, created in Pipeline Pilot, will be able to see.</p>
+<p>Adding Parameters
+<img src="./images/adding params.png" alt="Adding Parameters" style="border:1px solid black;"></p>
+</section>
+<section id="fill-in-the-parameters">
+<h2>5. Fill in the Parameters<a class="headerlink" href="#fill-in-the-parameters" title="Permalink to this heading"></a></h2>
+<p>Once the parameters have been created, the “values-view” is selected, and the parameters that our protocol can read are filled in. Although the protocol can read all of the previous steps’ parameters, it is easier to place them all in one step.</p>
+<p>Values View Step Params
+<img src="./images/values_view_step_params.png" alt="New Recipe Creation" style="border:1px solid black;"></p>
+<p>By following these steps, you can successfully create a step in the process tab, link it to a protocol, and add parameters. The parameters can then be sent to an API or an external endpoint, with the response either opening a website or populating parameters.</p>
+</section>
+</section>
+<section id="publishing-the-recipe">
+<h1>Publishing the Recipe<a class="headerlink" href="#publishing-the-recipe" title="Permalink to this heading"></a></h1>
+<p>After saving your work, you’ll find a dropdown near the save button stating “Current State: Draft”. Select this and change the state to ‘publish’. You can set the department and category to any value. Finally, hit ‘publish’.</p>
+<img src="./images/publish_activity.png" alt="New Recipe Creation" style="border:1px solid black;">
+<section id="testing-the-recipe">
+<h2>Testing the Recipe<a class="headerlink" href="#testing-the-recipe" title="Permalink to this heading"></a></h2>
+<p>To test the recipe:</p>
+<ol class="arabic simple">
+<li><p>Click on the BIOVIA logo (top-left) to return to the homepage and select “New Task Plan”. Name the plan (e.g., “testing task plan”) and confirm by clicking ‘OK’.</p></li>
+<li><p>Navigate to the ‘tasks’ tab and select the “create tasks from activities” icon.
+Use the name filter to locate and add the recipe you created as a task.</p></li>
+<li><p>Select the task and click the ‘execute’ button.</p></li>
+<li><p>A window will pop up, displaying all the information entered into the protocol.</p></li>
+</ol>
+<p>Tasks tab and execute button:
+<img src="./images/select_task_and_execute.png" alt="add your task" style="border:1px solid black;"></p>
+<p>The task will then pop-up in a new window:
+<img src="./images/executed_task2.png" alt="add your task" style="border:1px solid black;"></p>
+</section>
+</section>
+<section id="task-recipe-example">
+<h1>Task/Recipe Example<a class="headerlink" href="#task-recipe-example" title="Permalink to this heading"></a></h1>
+<p>In this example, a task is created that analysts can import. Clicking on the “Analyze TSu Files” button will open an external website (a Jupyter Notebook). The parameters are primarily filled in by the data-acquisition step of the recipe. These parameters are all sent to the Jupyter Notebook.</p>
+<p>Task/Recipe Example:
+<img src="./images/example_v2.png" alt="add your task" style="border:1px solid black;"></p>
+<p>One of the parameters, “Data File Link”, is a link to an API that contains a “GUID”. This “GUID” is used to fetch the specific data that the notebook requires.</p>
+</section>
+<section id="about-pipeline-pilot">
+<h1>About Pipeline Pilot<a class="headerlink" href="#about-pipeline-pilot" title="Permalink to this heading"></a></h1>
+<p>Pipeline Pilot (PLP) is the only environment with a direct connection to ELN. We utilize PLP as an intermediary to reach a different environment. That is, we first interact with PLP and then with our custom API.</p>
+</section>
+<section id="capture-hub-api-documentation">
+<h1>Capture Hub API Documentation<a class="headerlink" href="#capture-hub-api-documentation" title="Permalink to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>The Capture Hub API provides RESTful endpoints that enable clients to interact with the Capture Hub, including operations like updating parameters, managing process execution lifecycle, and more.</p>
+</section>
+<section id="login-and-token-generation">
+<h2>Login and Token Generation<a class="headerlink" href="#login-and-token-generation" title="Permalink to this heading"></a></h2>
+<p>Firstly, you need to generate an access token by making a call to the <code class="docutils literal notranslate"><span class="pre">/security/login</span></code> endpoint.</p>
+<p>POST https://onelab-dev.pfizer.com:9953/foundation/hub/api/v1/security/login
+Content-Type: application/json</p>
+<p>With the request body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;client_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foundation-hub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{username}}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{password}}&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Replace {{username}} and {{password}} with your credentials.</p>
+<p>This token should be included as an authorization header in subsequent requests like so:</p>
+</section>
+<section id="updating-parameters">
+<h2>Updating Parameters<a class="headerlink" href="#updating-parameters" title="Permalink to this heading"></a></h2>
+<p>The parameters of a process execution (PEX) step can be updated via the following endpoint:</p>
+<p>Where:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* pexid: This is the unique identifier of the process execution. It can be found in the URL of your PEX or sent via JSON from the PLP.
+* stepid: This is the actual step number, which can also be found in the URL after the pexid.
+</pre></div>
+</div>
+<p>For example:</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>Before using the API, please note that:</p>
+<ul class="simple">
+<li><p>Clients MUST support cookies.</p></li>
+<li><p>Only JSON formatted requests and responses are accepted (no XML).</p></li>
+<li><p>Refresh the Capture UI after updates.</p></li>
+<li><p>Avoid updating values from both the Capture UI and your clients simultaneously.</p></li>
+</ul>
+</section>
+<section id="capture-hub-processing-model">
+<h2>Capture Hub Processing Model<a class="headerlink" href="#capture-hub-processing-model" title="Permalink to this heading"></a></h2>
+<p>The Capture Hub processing model follows the following order:</p>
+<ol class="arabic simple">
+<li><p>User inputs are updated and stored individually with each entry or modification.</p></li>
+<li><p>Equipment and material mapping values are collected.</p></li>
+<li><p>Server-side calculations are performed, triggered by an update request.</p></li>
+</ol>
+</section>
+<section id="step-completion">
+<h2>Step Completion<a class="headerlink" href="#step-completion" title="Permalink to this heading"></a></h2>
+<p>To complete a step, clients must explicitly call the $complete API. Each update request alters the state of the step, but it is not automatically set to completed. This is managed by the server, with various properties being updated in the process.</p>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h2>
+<p>For a complete list of endpoints, their HTTP methods, status codes, and descriptions, please refer to the <span class="xref myst">API Reference</span>.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<p>Example 1: To login and generate a token:</p>
+<p>Example 2: To update a parameter:</p>
+<p>Replace {pexid} and {stepid} with the appropriate ids.</p>
+</section>
+<section id="showing-hidden-parameters">
+<h2>Showing hidden parameters<a class="headerlink" href="#showing-hidden-parameters" title="Permalink to this heading"></a></h2>
+<p>By default, GET responses do not include hidden parameters. To include both visible and hidden parameters, use <code class="docutils literal notranslate"><span class="pre">$show=hidden</span></code>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">/api/v1/pex/{pexId}/steps/{stepId}?$show=hidden</span></code></p>
+</section>
+<section id="response-scope">
+<h2>Response Scope<a class="headerlink" href="#response-scope" title="Permalink to this heading"></a></h2>
+<p>The scope of response properties can be controlled by the following <code class="docutils literal notranslate"><span class="pre">$include</span></code> options:</p>
+<ul class="simple">
+<li><p>KEYS: includes processNumber, id = escaped processNumber to be URL safe.</p></li>
+<li><p>HEADERS: includes metadata information such as displayName. This data is not changed once the step is loaded.</p></li>
+<li><p>VALUES: includes parameter values.</p></li>
+<li><p>STATES: includes step state, item states.</p></li>
+</ul>
+</section>
+<section id="status-codes">
+<h2>Status Codes<a class="headerlink" href="#status-codes" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>200: OK</p></li>
+<li><p>401: Unauthorized</p></li>
+<li><p>403: Forbidden</p></li>
+<li><p>404: Not Found</p></li>
+</ul>
+</section>
+<section id="endpoints">
+<h2>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this heading"></a></h2>
+<section id="get-pex-pexid-steps">
+<h3><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/pex/{pexId}/steps</span></code><a class="headerlink" href="#get-pex-pexid-steps" title="Permalink to this heading"></a></h3>
+<p>List all steps in the execution.</p>
+<p><strong>Response</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>[
+    {
+        &quot;id&quot;: &quot;0&quot;,
+        &quot;processNumber&quot;: &quot;0&quot;,
+        &quot;displayName&quot;: &quot;New Process&quot;,
+        &quot;phrasing&quot;: { /* see parameter */ },
+        &quot;activationCondition&quot;: { /* description &amp; expression */ },
+        &quot;state&quot;: &quot;Done&quot;
+    },
+    {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;processNumber&quot;: &quot;1&quot;,
+        &quot;displayName&quot;: &quot;Basic&quot;,
+        &quot;phrasing&quot;: { /* see parameter */ },
+        &quot;activationCondition&quot;: { /* description &amp; expression */ },
+        &quot;state&quot;: &quot;InProgress&quot;
+    },
+    ...
+]
+</pre></div>
+</div>
+<p>Status codes are the same as above.
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/pex/{pexId}/steps/$availableSteps</span></code></p>
+<p>List steps that are available for data entry and still require some action to complete: - enter new values. - change either item or step state.</p>
+<p>Response</p>
+<p>Status codes are the same as above.
+PUT /pex/{pexId}/steps/{stepId}</p>
+<p>Update a parameter value.</p>
+</section>
+</section>
+<section id="update-step-api">
+<h2>Update Step API<a class="headerlink" href="#update-step-api" title="Permalink to this heading"></a></h2>
+<p>PUT /pex/{pexId}/steps/{stepId}</p>
+<p>This endpoint is used to update the step.</p>
+<p>Request</p>
+<p>The request must include a list of parameters and a list of target value indices.</p>
+<p>Response</p>
+<p>The response only includes the changed PARAMETERS block (phrasing, annotations, parameters, material), the STATES block (state, completable, signable, itemStates) and _policy (only when step becomes OutOfDate).</p>
+<p>HTTP Status
+status code	reason
+202	Accepted
+400	Bad Request
+401	Unauthorized
+403	Forbidden
+404	Not Found
+422	Unprocessable Entity
+500	Internal Server Error</p>
+</section>
+<section id="put-pex-pexid-steps-complete">
+<h2>PUT /pex/{pexId}/steps/$complete<a class="headerlink" href="#put-pex-pexid-steps-complete" title="Permalink to this heading"></a></h2>
+<p>This endpoint is used to change pending item states of the step to complete and changes the step state to complete when all items are complete.
+Request</p>
+<p>NA
+Response</p>
+<p>Includes KEYS, STATES and _policy.</p>
+</section>
+<section id="put-pex-pexid-steps-stepid-abandon">
+<h2>PUT /pex/{pexId}/steps/{stepId}/$abandon<a class="headerlink" href="#put-pex-pexid-steps-stepid-abandon" title="Permalink to this heading"></a></h2>
+<p>This endpoint abandons/unabandons the specified sample/step by itemIndex.</p>
+<p>Request</p>
+<p>Response</p>
+<p>Response only includes - changed ITEM STATES list - completable flag - _policy: only when step becomes OutOfDate</p>
+<p>Abandon a step with no samples:</p>
+<p>NOTE: A step with no samples cannot be unabandoned.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Pfizer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
