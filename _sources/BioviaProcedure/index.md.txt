@@ -1,5 +1,5 @@
-Step by steup guide within Biovia
-=================================
+Step by steup guide within Biovia ELN
+=====================================
 
 ```{include} README.md
 ````
