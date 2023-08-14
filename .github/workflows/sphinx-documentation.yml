@@ -1,0 +1,46 @@
+name: sphinx-documentation
+
+on:
+  push:
+    branches:    
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: docs-source
+      uses: actions/checkout@v3
+
+    - name: gh-page-branch
+      uses: actions/checkout@v3
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: build-documentation
+      uses: brentjm/sphinx-action@master
+      with:
+        build-command: "sphinx-build -b html . _build/html"
+        pre-build-command: "pip install sphinx_rtd_theme myst_parser"
+        docs-folder: "docs/"
+
+    - name: push-gh-pages
+      run: |
+        cp -r docs/_build/html/* gh-pages/
+        cd gh-pages
+        touch .nojekyll
+        git config --local user.email "brent_maranzano@yahoo.com"
+        git config --local user.name ${{ github.actor_id }}
+        git add .
+        git commit -m "Update documentation" -a || true
+        git push
