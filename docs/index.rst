@@ -5,6 +5,9 @@
 Github Action for Sphinx Documentation
 ======================================
 
+.. automodule:: action
+   :members:
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
