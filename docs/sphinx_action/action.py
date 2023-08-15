@@ -25,7 +25,7 @@ GithubEnvironment = collections.namedtuple("GithubEnvironment", ["build_command"
 
 
 def extract_line_information(line_information):
-    """
+    r"""
     This method is responsible for parsing out the line number and file
     name from Sphinx log files.
 
