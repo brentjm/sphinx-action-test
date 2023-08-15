@@ -29,15 +29,6 @@ def extract_line_information(line_information):
     This method is responsible for parsing out the line number and file
     name from Sphinx log files.
 
-    Lines from sphinx log files look like this
-        C:\Users\ammar\workspace\sphinx-action\tests\test_projects\warnings\index.rst:22: WARNING: Problems with "include" directive path:
-        InputError: [Errno 2] No such file or directory: 'I_DONT_EXIST'.
-
-        /home/users/ammar/workspace/sphix-action/tests/test_projects/warnings/index.rst:22: WARNING: Problems with "include" directive path:
-        InputError: [Errno 2] No such file or directory: 'I_DONT_EXIST'.
-
-        /home/users/ammar/workspace/sphix-action/tests/test_projects/warnings/index.rst: Something went wrong with this whole file
-
     Args:
         line_information (str): A string containing the file name and line
 
