@@ -5,14 +5,13 @@
 Github Action for Sphinx Documentation
 ======================================
 
-.. automodule:: action
-   :members:
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    Overview/index.rst
+   modules/index.rst
 
 
 Indices and tables
