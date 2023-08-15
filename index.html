@@ -70,8 +70,89 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="github-action-for-sphinx-documentation">
-<h1>Github Action for Sphinx Documentation<a class="headerlink" href="#github-action-for-sphinx-documentation" title="Permalink to this heading"></a></h1>
+  <section id="module-action">
+<span id="github-action-for-sphinx-documentation"></span><h1>Github Action for Sphinx Documentation<a class="headerlink" href="#module-action" title="Permalink to this heading"></a></h1>
+<p>This module runs the sphinx build command and parses the output into a list of
+status_check.CheckAnnotation objects.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="action.GithubEnvironment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">action.</span></span><span class="sig-name descname"><span class="pre">GithubEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">build_command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#action.GithubEnvironment" title="Permalink to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="action.GithubEnvironment.build_command">
+<span class="sig-name descname"><span class="pre">build_command</span></span><a class="headerlink" href="#action.GithubEnvironment.build_command" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="action.build_all_docs">
+<span class="sig-prename descclassname"><span class="pre">action.</span></span><span class="sig-name descname"><span class="pre">build_all_docs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">github_env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docs_directories</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#action.build_all_docs" title="Permalink to this definition"></a></dt>
+<dd><p>Builds all the docs in the provided directories.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>github_env (dict): The environment variables from GitHub
+docs_directories (list): A list of directories containing docs</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If no docs directories are provided
+RuntimeError: If the build fails</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="action.build_docs">
+<span class="sig-prename descclassname"><span class="pre">action.</span></span><span class="sig-name descname"><span class="pre">build_docs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">build_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docs_directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#action.build_docs" title="Permalink to this definition"></a></dt>
+<dd><p>Builds the docs using the provided build command.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>build_command (str): The command to build the docs
+docs_directory (str): The directory containing the docs</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If the build command is empty</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="action.extract_line_information">
+<span class="sig-prename descclassname"><span class="pre">action.</span></span><span class="sig-name descname"><span class="pre">extract_line_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_information</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#action.extract_line_information" title="Permalink to this definition"></a></dt>
+<dd><p>This method is responsible for parsing out the line number and file
+name from Sphinx log files.</p>
+<dl>
+<dt>Lines from sphinx log files look like this</dt><dd><p>C:Usersammarworkspacesphinx-actionteststest_projectswarningsindex.rst:22: WARNING: Problems with “include” directive path:
+InputError: [Errno 2] No such file or directory: ‘I_DONT_EXIST’.</p>
+<p>/home/users/ammar/workspace/sphix-action/tests/test_projects/warnings/index.rst:22: WARNING: Problems with “include” directive path:
+InputError: [Errno 2] No such file or directory: ‘I_DONT_EXIST’.</p>
+<p>/home/users/ammar/workspace/sphix-action/tests/test_projects/warnings/index.rst: Something went wrong with this whole file</p>
+</dd>
+<dt>Args:</dt><dd><p>line_information (str): A string containing the file name and line</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: A tuple containing the file name and line number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="action.parse_sphinx_warnings_log">
+<span class="sig-prename descclassname"><span class="pre">action.</span></span><span class="sig-name descname"><span class="pre">parse_sphinx_warnings_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#action.parse_sphinx_warnings_log" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a sphinx file containing warnings and errors into a list of
+status_check.CheckAnnotation objects.</p>
+<dl>
+<dt>Inputs look like this:</dt><dd><p>/media/sf_shared/workspace/sphinx-action/tests/test_projects/warnings_and_errors/index.rst:19: WARNING: Error in “code-block” directive:
+maximum 1 argument(s) allowed, 2 supplied.</p>
+<p>/cpython/Doc/distutils/_setuptools_disclaimer.rst: WARNING: document isn’t included in any toctree
+/cpython/Doc/contents.rst:5: WARNING: toctree contains reference to nonexisting document ‘ayylmao’</p>
+</dd>
+<dt>Args:</dt><dd><p>logs (list): A list of strings containing the sphinx logs</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: A list of status_check.CheckAnnotation objects</p>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
